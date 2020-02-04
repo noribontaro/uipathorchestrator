@@ -1,3 +1,6 @@
+module load
+."rds.ps1"
+
 [CmdletBinding()]
 #param(
     [Parameter()]
