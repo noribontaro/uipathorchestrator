@@ -1,5 +1,5 @@
 #module load
-."rds.ps1"
+#."rds.ps1"
 
 [CmdletBinding()]
 #param(
@@ -18,7 +18,7 @@
     [string]  $orchestratorHostname
 
     [Parameter(Mandatory = $true)]
-    [string]  $databaseServerName = "${dbinstance}"
+    [string]  $databaseServerName = Get-content .\rds.ps1 -TotalCount 1
 
     [Parameter()]
     [string]  $databaseName = "UiPath"
