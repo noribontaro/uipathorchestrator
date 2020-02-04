@@ -1,4 +1,4 @@
-module load
+#module load
 ."rds.ps1"
 
 [CmdletBinding()]
