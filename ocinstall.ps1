@@ -180,7 +180,7 @@ function Main {
     $msiProperties += @{
         "ORCHESTRATORFOLDER"          = "`"$($orchestratorFolder)`"";
         "DB_SERVER_NAME"              = "$($databaseServerName)";
-		"DB_DATABASE_NAME"            = "$($databaseName)";
+        "DB_DATABASE_NAME"            = "$($databaseName)";
         "HOSTADMIN_PASSWORD"          = "$($orchestratorAdminPassword)";
         "DEFAULTTENANTADMIN_PASSWORD" = "$($orchestratorAdminPassword)";
         "APP_ENCRYPTION_KEY"          = "$($getEncryptionKey.encryptionKey)";
