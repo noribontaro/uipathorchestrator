@@ -159,7 +159,7 @@ function Main {
     Install-UrlRewrite -urlRWpath "$tempDirectory\rewrite_amd64.msi"
 
     # install .Net 4.7.2
-    & "$tempDirectory\NDP472-KB4054530-x86-x64-AllOS-ENU.exe" /q /norestart
+    & "$tempDirectory\NDP472-KB4054530-x86-x64-AllOS-ENU.exe" /q /passive /norestart
 
     # ((Invoke-WebRequest -Uri http://169.254.169.254/latest/meta-data/public-hostname -UseBasicParsing).RawContent -split "`n")[-1]
 
