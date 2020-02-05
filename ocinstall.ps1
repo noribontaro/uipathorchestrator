@@ -160,6 +160,7 @@ function Main {
 
     # install .Net 4.7.2
     & "$tempDirectory\NDP472-KB4054530-x86-x64-AllOS-ENU.exe" /q /norestart
+    Wait-Process -Name "NDP472-KB4054530-x86-x64-AllOS-ENU"
 
     # ((Invoke-WebRequest -Uri http://169.254.169.254/latest/meta-data/public-hostname -UseBasicParsing).RawContent -split "`n")[-1]
 
