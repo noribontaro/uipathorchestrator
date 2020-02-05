@@ -18,7 +18,7 @@
     [string]  $orchestratorHostname
 
     [Parameter(Mandatory = $true)]
-    [string]  $databaseServerName = Get-content .\rds.ps1 -TotalCount 1
+    [string]  $databaseServerName = Get-content C:\rds.ps1 -TotalCount 1
 
     [Parameter()]
     [string]  $databaseName = "UiPath"
