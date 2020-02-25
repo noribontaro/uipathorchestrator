@@ -6,75 +6,75 @@
 
 [CmdletBinding()]
 
-param(
+#param(
     [Parameter()]
     [ValidateSet('19.10.17', '19.10.16', '19.10.15', '19.4.4', '19.4.3', '19.4.2', '18.4.6', '18.4.5', '18.4.4', '18.4.3', '18.4.2', '18.4.1')]
-    [string] $orchestratorVersion = "19.10.17",
+    [string] $orchestratorVersion = "19.10.17"
 
     [Parameter()]
-    [string] $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator",
+    [string] $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
 
     [Parameter(Mandatory = $true)]
-    [string]  $passphrase = "Passw0rd!",
+    [string]  $passphrase = "Passw0rd!"
 
     [Parameter()]
     [AllowEmptyString()]
-    [string]  $orchestratorHostname,
+    [string]  $orchestratorHostname
 
     [Parameter(Mandatory = $true)]
-    [string]  $databaseServerName = $(Get-content C:\rds.ps1 -TotalCount 1),
+    [string]  $databaseServerName = Get-content C:\rds.ps1 -TotalCount 1
 
     [Parameter()]
-    [string]  $databaseName = "UiPath",
+    [string]  $databaseName = "UiPath"
 
     [Parameter(Mandatory = $true)]
-    [string]  $databaseUserName = "uipathdbuser",
+    [string]  $databaseUserName = "uipathdbuser"
 
     [Parameter(Mandatory = $true)]
-    [string]  $databaseUserPassword = "Passw0rd!",
+    [string]  $databaseUserPassword = "Passw0rd!"
 
     [Parameter()]
     [ValidateSet('SQL', 'WINDOWS')]
-    [string]  $databaseAuthenticationMode = "SQL",
+    [string]  $databaseAuthenticationMode = "SQL"
 
     [Parameter()]
     [ValidateSet('USER', 'APPPOOLIDENTITY')]
-    [string]  $appPoolIdentityType = "APPPOOLIDENTITY",
+    [string]  $appPoolIdentityType = "APPPOOLIDENTITY"
 
     [Parameter()]
-    [string]  $appPoolIdentityUser,
+    [string]  $appPoolIdentityUser
 
     [Parameter()]
-    [string]  $appPoolIdentityUserPassword,
+    [string]  $appPoolIdentityUserPassword
 
     [Parameter()]
-    [string[]] $redisServerHost,
+    [string[]] $redisServerHost
 
     [Parameter()]
-    [string] $nuGetStoragePath,
+    [string] $nuGetStoragePath
 
     [Parameter()]
-    [string] $orchestratorAdminUsername = "admin",
+    [string] $orchestratorAdminUsername = "admin"
 
     [Parameter(Mandatory = $true)]
-    [string] $orchestratorAdminPassword = "Passw0rd!",
+    [string] $orchestratorAdminPassword = Get-content C:\oc.ps1 -TotalCount 1
 
     [Parameter()]
-    [string] $orchestratorTennant = "Default",
+    [string] $orchestratorTennant = "Default"
 
     [Parameter()]
-    [string] $orchestratorLicenseCode,
+    [string] $orchestratorLicenseCode
 
     [Parameter(Mandatory = $true)]
-    [string]  $configureES = "",
+    [string]  $configureES = Get-content C:\es.ps1 -TotalCount 1
 
     [Parameter()]
-    [string]  $esDomainName = $(Get-content C:\es.ps1 -TotalCount 1),
+    [string]  $esDomainName = Get-content C:\es.ps1 -TotalCount 2
 
     [Parameter()]
     [string]  $esReqAuth = ""
 
-)
+#)
 
 ###Create Database
 Invoke-Sqlcmd -ServerInstance "$databaseServerName" -Username "$databaseUserName" -Password "$databaseUserPassword" "CREATE DATABASE $databaseName COLLATE Latin1_General_CI_AS"
