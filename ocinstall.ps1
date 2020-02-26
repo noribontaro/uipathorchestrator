@@ -254,9 +254,6 @@ function Main {
 
         $msiProperties += @{
             "ELASTIC_URL" = "$($esDomainName)";
-            "ELASTIC_REQUIRES_AUTH"     = "$($esReqAuth)";
-            "ELASTIC_USER_NAME"      = "$($esUserName)";
-            "ELASTIC_USER_PASSWORD"      = "$($esUserPassword)";
         }
     }
     else {
