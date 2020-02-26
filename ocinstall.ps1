@@ -4,6 +4,7 @@
 #
 #######################
 
+<#
 [CmdletBinding()]
 
 #param(
@@ -75,6 +76,29 @@
     [string]  $esReqAuth = ""
 
 #)
+#>
+$orchestratorVersion = "19.10.17"
+$orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
+$passphrase = "Passw0rd!"
+$orchestratorHostname
+$databaseServerName = Get-content C:\temp\rds.ps1 -TotalCount 1
+$databaseName = "UiPath"
+$databaseUserName = "uipathdbuser"
+$databaseUserPassword = Get-content C:\temp\rds.ps1 -TotalCount 1
+$databaseAuthenticationMode = "SQL"
+$appPoolIdentityType = "APPPOOLIDENTITY"
+$appPoolIdentityUser
+$appPoolIdentityUserPassword
+$redisServerHost
+$nuGetStoragePath
+$orchestratorAdminUsername = "admin"
+$orchestratorAdminPassword = Get-content C:\temp\oc.ps1 -TotalCount 1
+$orchestratorTennant = "Default"
+$orchestratorLicenseCode
+$configureES = Get-content C:\temp\enablees.ps1 -TotalCount 1
+$esDomainName = Get-content C:\temp\es.ps1 -TotalCount 2
+$esReqAuth = ""
+
 
 ###Create Database
 Invoke-Sqlcmd -ServerInstance "$databaseServerName" -Username "$databaseUserName" -Password "$databaseUserPassword" "CREATE DATABASE $databaseName COLLATE Latin1_General_CI_AS"
