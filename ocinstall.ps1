@@ -84,7 +84,7 @@ $orchestratorHostname
 $databaseServerName = Get-content C:\temp\rds.ps1 -TotalCount 1
 $databaseName = "UiPath"
 $databaseUserName = "uipathdbuser"
-$databaseUserPassword = Get-content C:\temp\rds.ps1 -TotalCount 1
+$databaseUserPassword = Get-content C:\temp\rdspass.ps1 -TotalCount 1
 $databaseAuthenticationMode = "SQL"
 $appPoolIdentityType = "APPPOOLIDENTITY"
 $appPoolIdentityUser
