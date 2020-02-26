@@ -81,10 +81,10 @@ $orchestratorVersion = "19.10.17"
 $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
 $passphrase = "Passw0rd!"
 $orchestratorHostname
-$databaseServerName = Get-content C:\temp\rds.ps1 -TotalCount 1
+$databaseServerName = Get-content C:\temp2\rds.ps1 -TotalCount 1
 $databaseName = "UiPath"
 $databaseUserName = "uipathdbuser"
-$databaseUserPassword = Get-content C:\temp\rdspass.ps1 -TotalCount 1
+$databaseUserPassword = Get-content C:\temp2\rdspass.ps1 -TotalCount 1
 $databaseAuthenticationMode = "SQL"
 $appPoolIdentityType = "APPPOOLIDENTITY"
 $appPoolIdentityUser
@@ -92,11 +92,11 @@ $appPoolIdentityUserPassword
 $redisServerHost
 $nuGetStoragePath
 $orchestratorAdminUsername = "admin"
-$orchestratorAdminPassword = Get-content C:\temp\oc.ps1 -TotalCount 1
+$orchestratorAdminPassword = Get-content C:\temp2\oc.ps1 -TotalCount 1
 $orchestratorTennant = "Default"
 $orchestratorLicenseCode
-$configureES = Get-content C:\temp\enablees.ps1 -TotalCount 1
-$esDomainName = Get-content C:\temp\es.ps1 -TotalCount 2
+$configureES = Get-content C:\temp2\enablees.ps1 -TotalCount 1
+$esDomainName = Get-content C:\temp2\es.ps1 -TotalCount 2
 $esReqAuth = ""
 
 
