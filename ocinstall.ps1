@@ -4,80 +4,8 @@
 #
 #######################
 
-<#
-[CmdletBinding()]
 
-#param(
-    [Parameter()]
-    [ValidateSet('19.10.17', '19.10.16', '19.10.15', '19.4.4', '19.4.3', '19.4.2', '18.4.6', '18.4.5', '18.4.4', '18.4.3', '18.4.2', '18.4.1')]
-    [string] $orchestratorVersion = "19.10.17"
-
-    [Parameter()]
-    [string] $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
-
-    [Parameter(Mandatory = $true)]
-    [string]  $passphrase = "Passw0rd!"
-
-    [Parameter()]
-    [AllowEmptyString()]
-    [string]  $orchestratorHostname
-
-    [Parameter(Mandatory = $true)]
-    [string]  $databaseServerName = Get-content C:\rds.ps1 -TotalCount 1
-
-    [Parameter()]
-    [string]  $databaseName = "UiPath"
-
-    [Parameter(Mandatory = $true)]
-    [string]  $databaseUserName = "uipathdbuser"
-
-    [Parameter(Mandatory = $true)]
-    [string]  $databaseUserPassword = "Passw0rd!"
-
-    [Parameter()]
-    [ValidateSet('SQL', 'WINDOWS')]
-    [string]  $databaseAuthenticationMode = "SQL"
-
-    [Parameter()]
-    [ValidateSet('USER', 'APPPOOLIDENTITY')]
-    [string]  $appPoolIdentityType = "APPPOOLIDENTITY"
-
-    [Parameter()]
-    [string]  $appPoolIdentityUser
-
-    [Parameter()]
-    [string]  $appPoolIdentityUserPassword
-
-    [Parameter()]
-    [string[]] $redisServerHost
-
-    [Parameter()]
-    [string] $nuGetStoragePath
-
-    [Parameter()]
-    [string] $orchestratorAdminUsername = "admin"
-
-    [Parameter(Mandatory = $true)]
-    [string] $orchestratorAdminPassword = Get-content C:\oc.ps1 -TotalCount 1
-
-    [Parameter()]
-    [string] $orchestratorTennant = "Default"
-
-    [Parameter()]
-    [string] $orchestratorLicenseCode
-
-    [Parameter(Mandatory = $true)]
-    [string]  $configureES = Get-content C:\es.ps1 -TotalCount 1
-
-    [Parameter()]
-    [string]  $esDomainName = Get-content C:\es.ps1 -TotalCount 2
-
-    [Parameter()]
-    [string]  $esReqAuth = ""
-
-#)
-#>
-$orchestratorVersion = "19.10.17"
+$orchestratorVersion = Get-content C:\temp2\ocver.ps1 -TotalCount 1
 $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
 $passphrase = "Passw0rd!"
 $orchestratorHostname
@@ -96,7 +24,7 @@ $orchestratorAdminPassword = Get-content C:\temp2\oc.ps1 -TotalCount 1
 $orchestratorTennant = "Default"
 $orchestratorLicenseCode
 $configureES = Get-content C:\temp2\enablees.ps1 -TotalCount 1
-$esDomainName = Get-content C:\temp2\es.ps1 -TotalCount 2
+$esDomainName = Get-content C:\temp2\es.ps1 -TotalCount 1
 $esReqAuth = ""
 
 
