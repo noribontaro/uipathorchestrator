@@ -23,7 +23,6 @@ $orchestratorAdminUsername = "admin"
 $orchestratorAdminPassword = Get-content C:\temp_param\oc.ps1 -TotalCount 1
 $orchestratorTennant = "Default"
 $orchestratorLicenseCode
-$configureES = Get-content C:\temp_param\enablees.ps1 -TotalCount 1
 $esDomainName = Get-content C:\temp_param\es.ps1 -TotalCount 1
 $esReqAuth = ""
 
