@@ -146,6 +146,7 @@ function Main {
         "ORCHESTRATORFOLDER"          = "`"$($orchestratorFolder)`"";
         "DB_SERVER_NAME"              = "$($databaseServerName)";
         "DB_DATABASE_NAME"            = "$($databaseName)";
+        "ELASTIC_URL"                 = "$($esDomainName)";
         "HOSTADMIN_PASSWORD"          = "$($orchestratorAdminPassword)";
         "DEFAULTTENANTADMIN_PASSWORD" = "$($orchestratorAdminPassword)";
         "APP_ENCRYPTION_KEY"          = "$($getEncryptionKey.encryptionKey)";
@@ -176,16 +177,6 @@ function Main {
     }
     else {
         $msiProperties += @{"DB_AUTHENTICATION_MODE" = "WINDOWS"; }
-    }
-
-    if ($configureES -eq "True") {
-
-        $msiProperties += @{
-            "ELASTIC_URL" = "$($esDomainName)";
-        }
-    }
-    else {
-        : #nothing
     }
 
     Install-UiPathOrchestratorEnterprise -msiPath "$($tempDirectory)\UiPathOrchestrator.msi" -logPath "$($sLogPath)\Install-UiPathOrchestrator.log" -msiFeatures $msiFeatures -msiProperties $msiProperties
