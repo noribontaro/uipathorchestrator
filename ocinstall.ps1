@@ -335,18 +335,7 @@ function Main {
 
 }
 
-<#
-.DESCRIPTION
-Installs an MSI by calling msiexec.exe, with verbose logging
-.PARAMETER msiPath
-Path to the MSI to be installed
-.PARAMETER logPath
-Path to a file where the MSI execution will be logged via "msiexec [...] /lv*"
-.PARAMETER features
-A list of features that will be installed via ADDLOCAL="..."
-.PARAMETER properties
-Additional MSI properties to be passed to msiexec
-#>
+
 function Invoke-MSIExec {
 
     param (
@@ -380,20 +369,7 @@ function Invoke-MSIExec {
     return $process
 }
 
-<#
-.DESCRIPTION
-Installs UiPath by calling Invoke-MSIExec
-.PARAMETER msiPath
-Path to the MSI to be installed
-.PARAMETER installationFolder
-Where UiPath will be installed
-.PARAMETER licenseCode
-License code used to activate Studio
-.PARAMETER msiFeatures
-A list of MSI features to pass to Invoke-MSIExec
-.PARAMETER msiProperties
-A list of MSI properties to pass to Invoke-MSIExec
-#>
+
 function Install-UiPathOrchestratorEnterprise {
 
     param (
@@ -440,22 +416,7 @@ function Install-UiPathOrchestratorEnterprise {
     }
 }
 
-<#
-    .SYNOPSIS
-      Install URL Rewrite necessary for UiPath Orchestrator.
 
-    .PARAMETER urlRWpath
-      Mandatory. String. Path to URL Rewrite package. Example: $urlRWpath = "C:\temp\rewrite_amd64.msi"
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      None
-    
-    .Example
-      Install-UrlRewrite -urlRWpath "C:\temp\rewrite_amd64.msi"
-#>
 function Install-UrlRewrite {
   
     param(
@@ -492,25 +453,7 @@ function Install-UrlRewrite {
     }
 }
 
-<#
-    .SYNOPSIS
-      Generate web.config keys.
 
-    .Description
-      Generate same AppEncryption key, Nuget API keys, Machine Validation and Decryption keys based on a passphrase.
-
-    .PARAMETER passphrase
-      String. Mandatory. Passphrase to generate AppEncryption key, Nuget API keys, Machine Validation and Decryption keys. Example: $passphrase = "YourP@ssphr4s3!"
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      Encyption key, Nuget API key, Machine Validation and Decryption keys.
-    
-    .Example
-      Generate-Key -passphrase "YourP@ssphr4s3!"
-#>
 function Generate-Key {
 
     param(
@@ -560,38 +503,7 @@ function Generate-Key {
 
 }
 
-<#
-    .SYNOPSIS
-      Modify MachineKey.
 
-    .Description
-      Modify MachineKey section in an existing web.config.
-
-    .PARAMETER webconfigPath
-      Mandatory. String. Path of an existing web.config. Example: $webconfigPath = "C:\UiPathOrchestrator\web.config"
-
-    .PARAMETER validationKey
-      Mandatory. String. The key name to be added/modified . Example: $validationKey = "ValidationKey 128 bytes"
-
-    .PARAMETER decryptionKey
-      Mandatory. String. The value to be added/modified for the specified key. Example: $decryptionKey = "DecryptionKey 64 bytes"
-
-    .PARAMETER validation
-      Mandatory. String. The value to be added/modified for the specified key. Example: $validation = "SHA1"
-
-    .PARAMETER decryption
-      Mandatory. String. The value to be added/modified for the specified key. Example: $decryption = "AES"
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      None
-    
-    .Example
-      SetMachineKey -webconfigPath "C:\UiPathOrchestrator\web.config" -validationKey "ValidationKey 128 bytes" -decryptionKey "DecryptionKey 64 bytes" -validation "SHA1" -decryption "AES"
-
-#>
 function SetMachineKey {
 
     param(
@@ -643,31 +555,7 @@ function SetMachineKey {
     }
 }
 
-<#
-    .SYNOPSIS
-      Add/Modify AppSettings.
 
-    .Description
-      Add/Modify AppSettings section in an existing web.config.
-
-    .PARAMETER path
-      Mandatory. String. Path of an existing web.config. Example: $path = "C:\UiPathOrchestrator"
-
-    .PARAMETER key
-      Mandatory. String. The key name to be added/modified . Example: $key = "NuGet.Packages.Path"
-
-    .PARAMETER value
-      Mandatory. String. The value to be added/modified for the specified key. Example: $value = "\\localhost\NugetPackagesFolder"
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      None
-    
-    .Example
-      Set-AppSettings -path "C:\UiPathOrchestrator" -key "NuGet.Packages.Path" -value "\\localhost\NugetPackagesFolder"
-#>
 function Set-AppSettings {
     param (
         # web.config path
@@ -729,25 +617,7 @@ function Set-AppSettings {
     }
 }
 
-<#
-    .SYNOPSIS
-      Test URL.
 
-    .Description
-      Test if the installation of the UiPath Orchestrator it's successfully via URL.
-
-    .PARAMETER orchestratorURL
-      String. URL of the recently deployed orchestrator. Example: $orchestratorURL = https://localhost
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      None
-    
-    .Example
-      TestOrchestratorConnection -orchestratorURL "https://$orchestratorHostname"
-#>
 function TestOrchestratorConnection {
     param (
         [string]
@@ -774,25 +644,7 @@ function TestOrchestratorConnection {
 
 }
 
-<#
-    .SYNOPSIS
-      Install Windows Features.
 
-    .Description
-      Install necessary Windows Features for UiPath Orchestrator.
-
-    .PARAMETER features
-      Mandatory. Array. Windows Features you want to install on the local server. Example: $features = 'ClientForNFS-Infrastructure'
-
-    .INPUTS
-      Parameters above.
-
-    .OUTPUTS
-      None
-    
-    .Example
-      Install-UiPathOrchestratorFeatures -features  @('IIS-DefaultDocument','WCF-TCP-PortSharing45','ClientForNFS-Infrastructure')
-#>
 function Install-UiPathOrchestratorFeatures {
     param (
 
@@ -815,16 +667,8 @@ function Install-UiPathOrchestratorFeatures {
 
 }
 
-<#
-  .DESCRIPTION
-  Downloads a file from a URL
 
-  .PARAMETER url
-  The URL to download from
 
-  .PARAMETER outputFile
-  The local path where the file will be downloaded
-#>
 function Download-File {
 
     param (
@@ -851,29 +695,7 @@ function Download-File {
     }
 }
 
-<#
-  .SYNOPSIS
-    Creates log file
 
-  .DESCRIPTION
-    Creates log file with path and name that is passed. Checks if log file exists, and if it does deletes it and creates a new one.
-    Once created, writes initial logging data
-
-  .PARAMETER LogPath
-    Mandatory. Path of where log is to be created. Example: C:\Windows\Temp
-
-  .PARAMETER LogName
-    Mandatory. Name of log file to be created. Example: Test_Script.log
-
-  .PARAMETER ScriptVersion
-    Mandatory. Version of the running script which will be written in the log. Example: 1.5
-
-  .INPUTS
-    Parameters above
-
-  .OUTPUTS
-    Log file created
- #>
 function Log-Start {
 
     [CmdletBinding()]
@@ -927,25 +749,7 @@ function Log-Start {
 }
 
 
-<#
-    .SYNOPSIS
-      Writes to a log file
 
-    .DESCRIPTION
-      Appends a new line to the end of the specified log file
-
-    .PARAMETER LogPath
-      Mandatory. Full path of the log file you want to write to. Example: C:\Windows\Temp\Test_Script.log
-
-    .PARAMETER LineValue
-      Mandatory. The string that you want to write to the log
-
-    .INPUTS
-      Parameters above
-
-    .OUTPUTS
-      None
-  #>
 function Log-Write {
 
     [CmdletBinding()]
@@ -966,28 +770,7 @@ function Log-Write {
     }
 }
 
-<#
-    .SYNOPSIS
-      Writes an error to a log file
 
-    .DESCRIPTION
-      Writes the passed error to a new line at the end of the specified log file
-
-    .PARAMETER LogPath
-      Mandatory. Full path of the log file you want to write to. Example: C:\Windows\Temp\Test_Script.log
-
-    .PARAMETER ErrorDesc
-      Mandatory. The description of the error you want to pass (use $_.Exception)
-
-    .PARAMETER ExitGracefully
-      Mandatory. Boolean. If set to True, runs Log-Finish and then exits script
-
-    .INPUTS
-      Parameters above
-
-    .OUTPUTS
-      None
-  #>
 function Log-Error {
 
     [CmdletBinding()]
@@ -1017,25 +800,7 @@ function Log-Error {
     }
 }
 
-<#
-    .SYNOPSIS
-      Write closing logging data & exit
 
-    .DESCRIPTION
-      Writes finishing logging data to specified log and then exits the calling script
-
-    .PARAMETER LogPath
-      Mandatory. Full path of the log file you want to write finishing data to. Example: C:\Windows\Temp\Script.log
-
-    .PARAMETER NoExit
-      Optional. If this is set to True, then the function will not exit the calling script, so that further execution can occur
-
-    .INPUTS
-      Parameters above
-
-    .OUTPUTS
-      None
-  #>
 function Log-Finish {
 
     [CmdletBinding()]
