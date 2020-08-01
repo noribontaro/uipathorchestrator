@@ -9,7 +9,7 @@ $orchestratorVersion = Get-content C:\temp_param\ocver.ps1 -TotalCount 1
 $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
 $passphrase = "Passw0rd!"
 $orchestratorHostname
-$databaseServerName = Get-content C:\temp_param\rds.ps1 -TotalCount 1
+$databaseServerName = Get-content C:\temp_param\cloudsql.ps1 -TotalCount 1
 $databaseName = "UiPath"
 $databaseUserName = "sqlserver"
 $databaseUserPassword = Get-content C:\temp_param\rdspass.ps1 -TotalCount 1
