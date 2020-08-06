@@ -12,7 +12,7 @@ $orchestratorHostname
 $databaseServerName = Get-content C:\temp_param\cloudsql.ps1 -TotalCount 1
 $databaseName = "UiPath"
 $databaseUserName = "sqlserver"
-$databaseUserPassword = Get-content C:\temp_param\rdspass.ps1 -TotalCount 1
+$databaseUserPassword = Get-content C:\temp_param\cloudsqlpass.ps1 -TotalCount 1
 $databaseAuthenticationMode = "SQL"
 $appPoolIdentityType = "APPPOOLIDENTITY"
 $appPoolIdentityUser
