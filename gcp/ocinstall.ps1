@@ -5,14 +5,14 @@
 #######################
 
 
-$orchestratorVersion = Get-content C:\temp_param\ocver.ps1 -TotalCount 1
+$orchestratorVersion = Get-content C:\temp_param\ocver.txt -TotalCount 1
 $orchestratorFolder = "${env:ProgramFiles(x86)}\Uipath\Orchestrator"
 $passphrase = "Passw0rd!"
 $orchestratorHostname
-$databaseServerName = Get-content C:\temp_param\cloudsql.ps1 -TotalCount 1
+$databaseServerName = Get-content C:\temp_param\cloudsql.txt -TotalCount 1
 $databaseName = "UiPath"
 $databaseUserName = "sqlserver"
-$databaseUserPassword = Get-content C:\temp_param\cloudsqlpass.ps1 -TotalCount 1
+$databaseUserPassword = Get-content C:\temp_param\cloudsqlpass.txt -TotalCount 1
 $databaseAuthenticationMode = "SQL"
 $appPoolIdentityType = "APPPOOLIDENTITY"
 $appPoolIdentityUser
@@ -20,11 +20,11 @@ $appPoolIdentityUserPassword
 $redisServerHost
 $nuGetStoragePath
 $orchestratorAdminUsername = "admin"
-$orchestratorAdminPassword = Get-content C:\temp_param\oc.ps1 -TotalCount 1
+$orchestratorAdminPassword = Get-content C:\temp_param\oc.txt -TotalCount 1
 $orchestratorTennant = "Default"
 $orchestratorLicenseCode
-$useElasticsearch = Get-content C:\temp_param\usees.ps1 -TotalCount 1
-$esDomainName = Get-content C:\temp_param\es.ps1 -TotalCount 1
+$useElasticsearch = Get-content C:\temp_param\usees.txt -TotalCount 1
+$esDomainName = Get-content C:\temp_param\es.txt -TotalCount 1
 $esReqAuth = ""
 
 
