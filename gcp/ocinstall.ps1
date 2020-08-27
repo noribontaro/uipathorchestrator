@@ -29,7 +29,7 @@ $esReqAuth = ""
 
 
 ###Create Database
-Invoke-Sqlcmd -ServerInstance "$databaseServerName" -Username "$databaseUserName" -Password "$databaseUserPassword" "CREATE DATABASE $databaseName COLLATE Latin1_General_CI_AS"
+###Invoke-Sqlcmd -ServerInstance "$databaseServerName" -Username "$databaseUserName" -Password "$databaseUserPassword" "CREATE DATABASE $databaseName COLLATE Latin1_General_CI_AS"
 
 
 #Enable TLS12
